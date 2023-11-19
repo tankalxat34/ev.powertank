@@ -4,6 +4,7 @@ import {
 import ErrorPage from "./routes/error/error";
 import RouteMain from "./routes/main/main";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 export const router = createBrowserRouter([
     {
@@ -11,6 +12,7 @@ export const router = createBrowserRouter([
         element: <>
             <Header />
             <RouteMain />
+            <Footer />
         </>
     },
     {

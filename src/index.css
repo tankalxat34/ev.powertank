@@ -22,6 +22,8 @@
     --color-workflow-background: #EAE9E8;
     --color-workflow-color: #0C0101;
 
+    --navbar-heihgt: 6vh;
+
     --fontStack-header-sansSerif: -apple-system, BlinkMacSystemFont, 'Play-Regular', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, 'Rubik-Regular', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
@@ -65,6 +67,9 @@ body {
     background-color: var(--color-workflow-background);
     overflow-x: hidden;
     font-size: 20px;
+    user-select: none;
+
+    margin: var(--navbar-heihgt) 0!important;
 }
 
 h1,
@@ -89,6 +94,9 @@ a {
     color: #00465b;
     text-decoration: none;
     transition: all .2s;
+}
+a.w {
+    color: white;
 }
 
 a:hover {

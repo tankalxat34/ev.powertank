@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { observer } from 'mobx-react-lite';
-import RouteMain from './routes/main/main';
 import { BrowserRouter, Route, Router, RouterProvider, Routes } from 'react-router-dom';
 import { router } from './router';
-import Header from './components/Header/Header';
+import Modal from './UI/Modal/Modal';
 
 function App() {
     return (
