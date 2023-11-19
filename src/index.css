@@ -1,39 +1,70 @@
 @font-face {
-  font-family: 'Play-Regular';
-  src: url('../public/fonts/Play/Play-Regular.ttf');
+    font-family: 'Play-Regular';
+    src: url('../public/fonts/Play/Play-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'Play-Bold';
-  src: url('../public/fonts/Play/Play-Bold.ttf');
+    font-family: 'Play-Bold';
+    src: url('../public/fonts/Play/Play-Bold.ttf');
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('../public/fonts/Manrope/Manrope-VariableFont_wght.ttf');
+    font-family: 'Manrope';
+    src: url('../public/fonts/Manrope/Manrope-VariableFont_wght.ttf');
 }
 
 @font-face {
-  font-family: 'Rubik-Regular';
-  src: url('../public/fonts/Rubik/Rubik-Regular.ttf');
+    font-family: 'Rubik-Regular';
+    src: url('../public/fonts/Rubik/Rubik-Regular.ttf');
 }
 
 :root {
-  --color-workflow-background: #D7D6D5;
-  --color-workflow-color: #0C0101;
+    --color-workflow-background: #EAE9E8;
+    --color-workflow-color: #0C0101;
 
-  --color-button-1: #15A2CE;
-  --color-button-2: #31a7cb;
-
-
-  --fontStack-header-sansSerif: -apple-system, BlinkMacSystemFont, 'Play-Bold', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, 'Rubik-Regular', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --fontStack-header-sansSerif: -apple-system, BlinkMacSystemFont, 'Play-Regular', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, 'Rubik-Regular', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
+/* Общие стили для полосы прокрутки */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Дорожка прокрутки */
+::-webkit-scrollbar-track {
+    background-color: inherit;
+    /* Светлый оттенок цвета cyan */
+}
+
+/* Блок, по которому можно прокручивать */
+::-webkit-scrollbar-thumb {
+    background-color: #69afc6;
+    /* Цвет cyan */
+    border-radius: 6px;
+    /* border: 3px solid #f0f8ff; */
+    /* Цвет фона дорожки */
+}
+
+/* Кнопка прокрутки в начало/конец */
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+
 body {
-  color: var(--color-workflow-color);
-  margin: 0;
-  font-family: var(--fontStack-sansSerif);
+    color: var(--color-workflow-color);
+    font-family: var(--fontStack-sansSerif);
+    background-color: var(--color-workflow-background);
+    overflow-x: hidden;
+    font-size: 20px;
 }
 
 h1,
@@ -42,12 +73,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--fontStack-header-sansSerif);
+    font-family: var(--fontStack-header-sansSerif);
+    font-size: 4em;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 
@@ -58,7 +90,7 @@ code {
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /**
@@ -66,7 +98,7 @@ code {
    у которых есть атрибут class
   */
 :where(ul, ol):where([class]) {
-  padding-left: 0;
+    padding-left: 0;
 }
 
 /**
@@ -75,7 +107,7 @@ code {
   */
 body,
 :where(blockquote, figure):where([class]) {
-  margin: 0;
+    margin: 0;
 }
 
 /**
@@ -83,20 +115,20 @@ body,
    у которых есть атрибут class
   */
 :where(h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul,
-  ol,
-  dl):where([class]) {
-  margin-block: 0;
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    dl):where([class]) {
+    margin-block: 0;
 }
 
 :where(dd[class]) {
-  margin-left: 0;
+    margin-left: 0;
 }
 
 /**
@@ -104,15 +136,15 @@ body,
    у которого есть атрибут class
   */
 :where(ul[class]) {
-  list-style: none;
+    list-style: none;
 }
 
 /**
    Упрощаем работу с изображениями
   */
 img {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 /**
@@ -122,31 +154,31 @@ input,
 textarea,
 select,
 button {
-  font: inherit;
+    font: inherit;
 }
 
 html {
-  /**
+    /**
      Пригодится в большинстве ситуаций
      (когда, например, нужно будет "прижать" футер к низу сайта)
     */
-  height: 100%;
-  /**
+    height: 100%;
+    /**
      Плавный скролл
     */
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  /**
+    /**
      Пригодится в большинстве ситуаций
      (когда, например, нужно будет "прижать" футер к низу сайта)
     */
-  min-height: 100%;
-  /**
+    min-height: 100%;
+    /**
      Унифицированный интерлиньяж
     */
-  line-height: 1.5;
+    line-height: 1.5;
 }
 
 /**
@@ -154,19 +186,19 @@ body {
    которые предпочитают их не использовать
   */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 
 .layout {
-  background: var(--color-bg-grey-1);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  /* 100% высоты видимой области */
+    background: var(--color-bg-grey-1);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* 100% высоты видимой области */
 }

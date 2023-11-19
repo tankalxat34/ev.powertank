@@ -1,0 +1,68 @@
+:root {
+  --color-button-1: #15A2CE;
+  --color-button-2: #31a7cb;
+  --color-button-3: #4aadcb;
+
+  --color-button-secondary-1: #234753;
+  --color-button-secondary-2: #397082;
+  --color-button-secondary-3: #397082;
+
+  --color-button-negative-1: #CE1515;
+  --color-button-negative-2: #CB3131;
+  --color-button-negative-3: #CB3131;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+button:active {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.btn {
+    display: flex;
+    color: var(--color-workflow-background);
+    padding: 10px 50px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+.btn.primary {
+    background: var(--color-button-1);
+}
+.btn.primary:hover {
+    background: var(--color-button-2);
+}
+.btn.primary:active {
+    background: var(--color-button-3);
+}
+
+
+.btn.secondary {
+    background: var(--color-button-secondary-1);
+}
+
+.btn.secondary:hover {
+    background: var(--color-button-secondary-2);
+}
+
+.btn.secondary:active {
+    background: var(--color-button-secondary-3);
+}
+
+
+.btn.negative {
+    background: var(--color-button-negative-1);
+}
+
+.btn.negative:hover {
+    background: var(--color-button-negative-2);
+}
+
+.btn.negative:active {
+    background: var(--color-button-negative-3);
+}
