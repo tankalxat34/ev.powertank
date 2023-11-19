@@ -1,0 +1,8 @@
+.errorPage {
+    /* display: grid; */
+    justify-content: center;
+    align-items: center;
+    margin: 20%;
+    height: 100vh;
+    width: 100vw;
+}
