@@ -20,8 +20,47 @@
     margin: auto 10%;
 }
 
+.img {
+    max-width: 50vw;
+    max-height: 50vh;
+}
+
+.sectionText {
+    /* height: 100vh; */
+    min-height: 30vh;
+    height: max-content;
+    width: 100vw;
+
+    justify-content: center;
+    align-items: center;
+    margin: 5% auto;
+    /* margin-top: 5%; */
+}
+
+.sectionText > * {
+    min-width: 40%;
+    margin: auto 10%;
+}
 
 @media (max-width: 1200px) {
+    .sectionText > p {
+        text-align: justify;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img {
+        max-width: 100vw;
+        max-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .keyNumber {
+        font-size: 5em;
+    }
+
     .section {
         display: block;
     }
@@ -32,9 +71,6 @@
     }
 
     .section button {
-        margin: 20px auto;
-
-        width: 70vw;
         text-align: center;
         justify-content: center;
     }

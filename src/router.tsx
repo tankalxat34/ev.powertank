@@ -5,6 +5,7 @@ import ErrorPage from "./routes/error/error";
 import RouteMain from "./routes/main/main";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Sub from "./routes/sub/sub";
 
 export const router = createBrowserRouter([
     {
@@ -19,7 +20,8 @@ export const router = createBrowserRouter([
         path: "/sub",
         element: <>
             <Header />
-            <p>sub</p>
+            <Sub />
+            <Footer />
         </>
     },
     {
@@ -27,6 +29,7 @@ export const router = createBrowserRouter([
         element: <>
             <Header />
             <p>faq</p>
+            <Footer />
         </>
     },
     {

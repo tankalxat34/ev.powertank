@@ -1,0 +1,19 @@
+:root {
+    --color-success: #24a52b;
+}
+
+
+.badge {
+    display: flex;
+    border: 1px solid #009dff;
+    border-radius: 10px;
+    max-width: fit-content;
+    padding: 5px 15px;
+    margin-right: 5px;
+    transition: all .5s ease-out;
+    color: #009dff;
+}
+
+.badge:hover {
+    background-color: rgba(0, 208, 255, 0.177);
+}
