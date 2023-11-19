@@ -1,48 +1,15 @@
-.section1 {
-    margin: 10%;
-    display: flex;
-}
-
-.section1>div {
-    min-width: 50%;
-    margin: auto;
-}
-
-.section1>img {
-    max-width: 99vw;
-    max-height: 99vh;
+.img {
+    max-width: 50vw;
+    max-height: 50vh;
 }
 
 
 @media (max-width: 1200px) {
-    .section1 {
-        margin: 20px;
-        display: block;
-    }
-
-    .section1>* {
-        text-align: center;
+    .img {
+        max-width: 100vw;
+        max-height: 100vh;
         justify-content: center;
-    }
-
-    .section1 button {
+        align-items: center;
         margin: auto;
-
-        width: 70vw;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .section1>img {
-        width: 100vw;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-size: 2em;
     }
 }

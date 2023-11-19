@@ -1,0 +1,50 @@
+.section {
+    display: flex;
+    user-select: none;
+
+    /* background-image: url("../../images/backgroundImage.png"); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 100vh;
+    width: 100vw;
+
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.section>div {
+    min-width: 40%;
+    margin: auto 10%;
+}
+
+
+@media (max-width: 1200px) {
+    .section {
+        display: block;
+    }
+
+    .section>* {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .section button {
+        margin: 20px auto;
+
+        width: 70vw;
+        text-align: center;
+        justify-content: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 2em;
+    }
+}
