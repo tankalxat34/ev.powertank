@@ -5,7 +5,7 @@ import { BrowserRouter, Link } from "react-router-dom";
 import "./Header.css";
 import iconBurderMenu from "../../icons/dark-burger.svg"
 import Modal from "../../UI/Modal/Modal";
-import Links from "../../Links"
+import Links from "../../Links";
 
 
 const NavLinks: React.FC = () => {
@@ -48,15 +48,21 @@ const Header: React.FC = () => {
             </div>
             <Modal active={modalActions} setActive={setActiveModalActions} closeAfterClick={true}>
                 <h3>Меню</h3>
-                <div style={{display: "grid"}}>
+                <div style={{ display: "grid" }}>
                     <NavLinks />
                     <hr />
-                    <button className="btn primary" style={{margin: "20px 0 0 0"}}>
-                        Войти
-                    </button>
-                    <button className="btn secondary" style={{margin: "20px 0 0 0"}}>
-                        Регистрация
-                    </button>
+
+                    <Link to={"/login"}>
+                        <button className="btn primary" style={{ margin: "20px 0 0 0", width: "100%" }}>
+                            Войти
+                        </button>
+                    </Link>
+
+                    <Link to="/login" >
+                        <button className="btn secondary" style={{ margin: "20px 0 0 0", width: "100%" }}>
+                            Регистрация
+                        </button>
+                    </Link>
                 </div>
 
             </Modal>
