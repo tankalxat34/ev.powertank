@@ -9,7 +9,7 @@ import './Badge.css'
 const Badge: React.FC<IBadge> = ({ value, title, type }) => {
     return (
         <div className={`badge ${type}`}>
-            <span><b>{title && title.concat(":")}&nbsp;</b></span>
+            {title && <span><b>{title && title.concat(":")}&nbsp;</b></span>}
             <span>{value}</span>
         </div>
     )
