@@ -22,6 +22,7 @@
 
 .btns {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .btns > * {

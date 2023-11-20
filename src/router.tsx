@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         </>
     },
     {
-        path: "/sub",
+        path: "/price",
         element: <>
             <Header />
             <Sub />
@@ -29,6 +29,14 @@ export const router = createBrowserRouter([
         element: <>
             <Header />
             <p>faq</p>
+            <Footer />
+        </>
+    },
+    {
+        path: "/job",
+        element: <>
+            <Header />
+            <p>Раздел job в разработке</p>
             <Footer />
         </>
     },

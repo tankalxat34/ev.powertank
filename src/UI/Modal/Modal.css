@@ -4,6 +4,8 @@
     background-color: rgba(0, 0, 0, 0.391);
     z-index: 998;
     position: fixed;
+    margin: 0;
+    padding: 0;
     top: 0;
     left: 0;
     bottom: 0;
@@ -41,4 +43,13 @@
 
 .modal__content.active {
     transform: scale(1);
+}
+
+.modalBody {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+    overflow: scroll;
 }

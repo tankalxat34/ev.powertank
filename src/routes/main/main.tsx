@@ -4,7 +4,7 @@ import styles from "./main.module.css";
 import imgGazelle from "../../images/gazelle.png";
 import Section, { SectionText } from "../../UI/Section/Section";
 import Badge, { BadgesDiv } from "../../UI/Badge/Badge";
-import IconScrollDown from "../../icons/dark-scrollDown.svg";
+import { Link } from "react-router-dom";
 
 const SectionFirst: React.FC = () => {
     return (
@@ -34,14 +34,14 @@ const SectionFirst: React.FC = () => {
                         <li><b>Технологическое направление:</b> Энергоэффективность, Энергосбережение</li>
                     </ul>
                     <BadgesDiv>
-                        <Badge value="EnergyNet"/>
-                        <Badge value="AutoNet"/>
-                        <Badge value="EcoNet"/>
-                        <Badge value="Зеленая энергетика" type="positive"/>
-                        <Badge value="Энергоэффективность" type="positive"/>
-                        <Badge value="Доставка энергии" type="positive"/>
-                        <Badge value="Москва" type="negative"/>
-                        <Badge value="Московская область" type="negative"/>
+                        <Badge value="EnergyNet" />
+                        <Badge value="AutoNet" />
+                        <Badge value="EcoNet" />
+                        <Badge value="Зеленая энергетика" type="positive" />
+                        <Badge value="Энергоэффективность" type="positive" />
+                        <Badge value="Доставка энергии" type="positive" />
+                        <Badge value="Москва" type="negative" />
+                        <Badge value="Московская область" type="negative" />
                     </BadgesDiv>
                 </div>
             </SectionText>
@@ -90,6 +90,14 @@ const SectionFirst: React.FC = () => {
                 </div>
             </SectionText>
 
+
+            <SectionText>
+                <div>
+                    <h2>Подписка</h2>
+                    <p>Кроме Базового набора услуг, доступных нашим клиентам, мы предоставляем расширенные возможности для пользователей подписок "Улучшенный" и "Премиум". Подробная информация, преимущества и актуальные цены определены на <Link to="/price">этой странице</Link>.</p>
+                </div>
+            </SectionText>
+
             <SectionText>
                 <div>
                     <h2>Сотрудничество</h2>
@@ -100,6 +108,21 @@ const SectionFirst: React.FC = () => {
                         <li><b>Аналитик</b>: Опалихин Святослав Сергеевич, <a href="mailto:opalihin.svyatoslav@yandex.ru">opalihin.svyatoslav@yandex.ru</a></li>
                         <li><b>Креативный директор</b>: Пьянзин Тимофей Алексеевич, <a href="mailto:tp741242@gmail.com">tp741242@gmail.com</a></li>
                     </ul> */}
+                </div>
+            </SectionText>
+            
+            <SectionText>
+                <div>
+                    <h2>В путь!</h2>
+                    <p>Сделайте заказ прямо сейчас и начните поездку без ограничений вместе с EV PowerTank</p>
+                    <div className={styles.btns}>
+                        <Button>
+                            Заказать зарядную сессию
+                        </Button>
+                        <Button className="btn outline">
+                            Войти в личный кабинет
+                        </Button>
+                    </div>
                 </div>
             </SectionText>
         </>

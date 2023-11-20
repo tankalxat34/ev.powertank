@@ -27,13 +27,13 @@
 
 .sectionText {
     /* height: 100vh; */
-    min-height: 30vh;
+    /* min-height: 30vh; */
     height: max-content;
     width: 100vw;
 
     justify-content: center;
     align-items: center;
-    margin: 5% auto;
+    margin: 5vh auto;
     /* margin-top: 5%; */
 }
 
