@@ -79,6 +79,8 @@ h4,
 h5,
 h6 {
     font-family: var(--fontStack-header-sansSerif);
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 h1 {
@@ -90,7 +92,7 @@ h2 {
 }
 
 ol,ul {
-    margin: 1% 80px;
+    margin-left: 7%;
 }
 
 code {
