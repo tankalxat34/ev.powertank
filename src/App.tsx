@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 import { observer } from 'mobx-react-lite';
 import { BrowserRouter, Route, Router, RouterProvider, Routes } from 'react-router-dom';
-import { router } from './router';
-import Modal from './UI/Modal/Modal';
+import { privateProter, router } from './router';
 
 function App() {
+    const userSigned = false;
     return (
         <React.StrictMode>
-            <RouterProvider router={router} />
+            <RouterProvider router={userSigned ? privateProter : router} />
         </React.StrictMode>
     );
 }

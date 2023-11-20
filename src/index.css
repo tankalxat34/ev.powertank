@@ -72,6 +72,10 @@ body {
     margin: var(--navbar-heihgt) 0!important;
 }
 
+div {
+    min-height: max-content;
+}
+
 h1,
 h2,
 h3,

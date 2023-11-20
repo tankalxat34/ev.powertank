@@ -7,7 +7,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Sub from "./routes/sub/sub";
 
-export const router = createBrowserRouter([
+
+const _router: Object[] = [
     {
         path: "/",
         element: <>
@@ -41,9 +42,35 @@ export const router = createBrowserRouter([
         </>
     },
     {
+        path: "/login",
+        element: <>
+            <Header />
+            <p>Раздел login в разработке</p>
+            <Footer />
+        </>
+    },
+    {
         path: "*",
         element: <>
             <ErrorPage />
         </>
     }
-])
+]
+
+const _privateRouter = [
+    ..._router,
+    {
+        path: "/profile",
+        element: <>
+            <Header />
+            <p>Вы авторизованы и находитесь в своем профиле</p>
+            <Footer />
+        </>
+    }
+]
+
+
+const router = createBrowserRouter(_router);
+const privateProter = createBrowserRouter(_privateRouter);
+
+export { router, privateProter };

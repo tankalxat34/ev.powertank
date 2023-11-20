@@ -11,8 +11,8 @@ import Links from "../../Links"
 const NavLinks: React.FC = () => {
     return (
         <>
-            {Links.map((value: { title: string, path: string }) => {
-                return <Link to={value.path}>
+            {Links.map((value: { title: string, path: string }, index: number) => {
+                return <Link to={value.path} key={index}>
                     {value.title}
                 </Link>
             })}
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
             </div>
 
             <div className="linkAuth">
-                <Link to="/auth" >
+                <Link to="/login" >
                     Вход
                 </Link>
             </div>
