@@ -46,7 +46,7 @@ const Header: React.FC = () => {
                     <img src={iconBurderMenu} alt="" width='40px' />
                 </button>
             </div>
-            <Modal active={modalActions} setActive={setActiveModalActions}>
+            <Modal active={modalActions} setActive={setActiveModalActions} closeAfterClick={true}>
                 <h3>Меню</h3>
                 <div style={{display: "grid"}}>
                     <NavLinks />

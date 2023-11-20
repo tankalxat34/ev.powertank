@@ -38,6 +38,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--color-workflow-color);
 }
 
 .logo img {

@@ -1,15 +1,27 @@
 import React from "react";
-import { IBadge } from "../../interfaces/IBadge";
+import { IBadge, IBadgesDiv } from "../../interfaces/IBadge";
 import './Badge.css'
 
-const Badge: React.FC<IBadge | any> = ({ value, key, type }) => {
+
+
+
+
+const Badge: React.FC<IBadge> = ({ value, title, type }) => {
     return (
-        <div className='badge'>
-            {key &&<span>{key}:</span> }
+        <div className={`badge ${type}`}>
+            <span><b>{title && title.concat(":")}&nbsp;</b></span>
             <span>{value}</span>
         </div>
     )
 }
 
+const BadgesDiv: React.FC<IBadgesDiv> = (props) => {
+    return (
+        <div className="badgesDiv">
+            {props.children}
+        </div>
+    )
+}
 
+export { BadgesDiv };
 export default Badge;

@@ -90,7 +90,7 @@ h2 {
 }
 
 ol,ul {
-    margin: 1% 5%;
+    margin: 1% 80px;
 }
 
 code {
@@ -99,16 +99,16 @@ code {
 }
 
 a {
-    color: #00465b;
+    color: #15A2CE;
     text-decoration: none;
-    transition: all .2s;
+    transition: all .4s;
 }
 a.w {
     color: white;
 }
 
 a:hover {
-    color: #00546d;
+    color: rgb(0, 183, 239);
 }
 
 /**
