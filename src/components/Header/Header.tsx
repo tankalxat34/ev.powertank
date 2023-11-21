@@ -1,39 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Button } from "../../UI/Button/Button";
+import React, { useState } from "react";
 import logo from "../../images/logo192.png"
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import iconBurderMenu from "../../icons/dark-burger.svg"
 import Modal from "../../UI/Modal/Modal";
 import Links from "../../Links";
-import { auth, isAuth } from "../../firebase";
-import { onAuthStateChanged } from "firebase/auth";
 import LkState from "../LkState/LkState";
-
-
-// const ProfileLinks: React.FC = () => {
-
-//     const [state, setState] = useState({});
-
-//     useEffect(() => {
-//         onAuthStateChanged(auth, (data) => {
-//             console.log(data);
-//             setState({...data});
-//         })
-//     }, [])
-
-//     return isAuth()
-//         ? <>
-//             <Link to="/profile" >
-//                 Личный кабинет
-//             </Link>
-//         </>
-//         : <>
-//             <Link to="/login" >
-//                 Вход
-//             </Link>
-//         </>
-// }
 
 
 const NavLinks: React.FC = () => {

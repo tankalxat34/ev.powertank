@@ -23,24 +23,4 @@ const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 const auth = getAuth();
 
-
-const isAuth = () => {
-    return !!auth.currentUser;
-}
-
-
-const useAuthHook = () => {
-    const [state, setState] = useState({});
-
-    return useEffect(() => {
-        onAuthStateChanged(auth, (data) => {
-            console.log(data);
-            setState({...data});
-        })
-    }, [])
-
-
-}
-
-
-export { auth, isAuth };
+export { auth };

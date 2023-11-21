@@ -1,7 +1,4 @@
-import {
-    Navigate,
-    createBrowserRouter, redirect, redirectDocument,
-} from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./routes/error/error";
 import RouteMain from "./routes/main/main";
 import Header from "./components/Header/Header";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { signOut } from "firebase/auth";
 import { SectionText } from "../../UI/Section/Section";
 import { auth } from "../../firebase";

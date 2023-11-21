@@ -5,7 +5,6 @@ import imgGazelle from "../../images/gazelle.png";
 import Section, { SectionText } from "../../UI/Section/Section";
 import Badge, { BadgesDiv } from "../../UI/Badge/Badge";
 import { Link } from "react-router-dom";
-import { isAuth } from "../../firebase";
 import LkState from "../../components/LkState/LkState";
 
 

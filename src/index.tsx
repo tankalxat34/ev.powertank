@@ -1,6 +1,4 @@
-import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
-import { initializeApp } from "firebase/app";
 import 'firebase/firestore';
 import 'firebase/auth';
 import './index.css';
