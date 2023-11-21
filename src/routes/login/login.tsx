@@ -19,7 +19,6 @@ const Login: React.FC = () => {
     const handleLogin = (email: string, password: string) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((resp: UserCredential) => {
-                console.log(resp);
                 navigate('/profile');
             })
             .catch((error: Error) => {

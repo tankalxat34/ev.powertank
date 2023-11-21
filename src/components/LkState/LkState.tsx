@@ -5,7 +5,7 @@ import React from "react";
 
 
 interface ILkState {
-    children: React.ReactNode | ReactNode[]
+    children: ReactNode[]
 }
 
 /**
@@ -22,7 +22,6 @@ const LkState: React.FC<ILkState> = ({ children }) => {
 
     useEffect(() => {
         onAuthStateChanged(auth, (data) => {
-            console.log(data);
             if (data) {
                 setState(true);
             } else {

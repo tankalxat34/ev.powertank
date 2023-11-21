@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 
 const Profile: React.FC = () => {
-    console.log(auth.currentUser);
-
     const navigate = useNavigate();
 
     return <div>

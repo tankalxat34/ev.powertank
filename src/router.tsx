@@ -57,16 +57,6 @@ const _router: Object[] = [
             <Signup />
             <Footer />
         </>
-    },
-    {
-        path: "*",
-        element: true ? (
-            <>
-                <ErrorPage />
-            </>
-        ) : (
-            <Navigate to="/"/>
-        )
     }
 ]
 
@@ -93,7 +83,18 @@ const _privateRouter = [
 ]
 
 
-const router = createBrowserRouter(_router);
-const privateProter = createBrowserRouter(_privateRouter);
+const router = createBrowserRouter([..._router, {
+    path: "*",
+    element: <>
+        <ErrorPage />
+    </>
+}]);
+
+const privateProter = createBrowserRouter([..._privateRouter, {
+    path: "*",
+    element: <>
+        <ErrorPage />
+    </>
+}]);
 
 export { router, privateProter };
