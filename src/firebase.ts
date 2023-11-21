@@ -1,4 +1,7 @@
+import { rejects } from "assert";
 import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 // import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,3 +21,26 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
+const auth = getAuth();
+
+
+const isAuth = () => {
+    return !!auth.currentUser;
+}
+
+
+const useAuthHook = () => {
+    const [state, setState] = useState({});
+
+    return useEffect(() => {
+        onAuthStateChanged(auth, (data) => {
+            console.log(data);
+            setState({...data});
+        })
+    }, [])
+
+
+}
+
+
+export { auth, isAuth };

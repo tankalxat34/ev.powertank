@@ -1,27 +1,36 @@
-import React from "react";
-import user from "../../store/user";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { observable } from "mobx";
-import { observer } from "mobx-react-lite";
+import React, { useState } from "react";
+import { signOut } from "firebase/auth";
+import { SectionText } from "../../UI/Section/Section";
+import { auth } from "../../firebase";
+import { Button } from "../../UI/Button/Button";
+import { useNavigate } from "react-router-dom";
 
-const Profile: React.FC = observer(() => {
-    const auth = getAuth();
 
-    console.log(user);
-    console.log({...user.userObject});
-    console.log(user.auth);
+const Profile: React.FC = () => {
+    console.log(auth.currentUser);
 
-    onAuthStateChanged(auth, (argUser: any) => {
-        const uid = argUser.uid;
-        console.log('onAuthStateChanged', {...argUser});
-    })
+    const navigate = useNavigate();
 
     return <div>
-        <h2>Профиль</h2>
-        <p>Здесь представлена информация о вашем профиле</p>
-        <p>Логин: {user.email}</p>
-        <p>Дата регистрации: {user.userObject.metadata.creationTime}</p>
+        <SectionText>
+            <h2>Профиль</h2>
+            <h3>{auth.currentUser?.email}</h3>
+            <Button
+                viewtype="negative"
+                onClick={() => {
+                    signOut(auth)
+                        .then(() => {
+                            navigate('/');
+                        })
+                        .catch((error: Error) => {
+                            alert(error.message);
+                        })
+                }}
+            >
+                Выход
+            </Button>
+        </SectionText>
     </div>
-})
+}
 
 export default Profile;

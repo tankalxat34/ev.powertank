@@ -23,14 +23,16 @@ header {
 }
 
 .actions {
-    width: 80%;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .header .actions>* {
-    margin: 0 5%;
+    margin: 0 3%;
+    width: fit-content;
+    flex-wrap: wrap;
     color: var(--color-workflow-color);
 }
 

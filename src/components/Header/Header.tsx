@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../../UI/Button/Button";
 import logo from "../../images/logo192.png"
 import { BrowserRouter, Link } from "react-router-dom";
@@ -6,6 +6,34 @@ import "./Header.css";
 import iconBurderMenu from "../../icons/dark-burger.svg"
 import Modal from "../../UI/Modal/Modal";
 import Links from "../../Links";
+import { auth, isAuth } from "../../firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import LkState from "../LkState/LkState";
+
+
+// const ProfileLinks: React.FC = () => {
+
+//     const [state, setState] = useState({});
+
+//     useEffect(() => {
+//         onAuthStateChanged(auth, (data) => {
+//             console.log(data);
+//             setState({...data});
+//         })
+//     }, [])
+
+//     return isAuth()
+//         ? <>
+//             <Link to="/profile" >
+//                 Личный кабинет
+//             </Link>
+//         </>
+//         : <>
+//             <Link to="/login" >
+//                 Вход
+//             </Link>
+//         </>
+// }
 
 
 const NavLinks: React.FC = () => {
@@ -36,9 +64,18 @@ const Header: React.FC = () => {
             </div>
 
             <div className="linkAuth">
-                <Link to="/login" >
-                    Вход
-                </Link>
+                <LkState>
+                    <>
+                        <Link to="/profile" >
+                            Личный кабинет
+                        </Link>
+                    </>
+                    <>
+                        <Link to="/login" >
+                            Вход
+                        </Link>
+                    </>
+                </LkState>
             </div>
 
             <div className="burgerActions">
@@ -52,17 +89,29 @@ const Header: React.FC = () => {
                     <NavLinks />
                     <hr />
 
-                    <Link to={"/login"}>
-                        <button className="btn primary" style={{ margin: "20px 0 0 0", width: "100%" }}>
-                            Войти
-                        </button>
-                    </Link>
+                    <LkState>
+                        <>
+                            <Link to="/profile">
+                                <button className="btn primary" style={{ margin: "20px 0 0 0", width: "100%" }}>
+                                    Перейти в профиль
+                                </button>
+                            </Link>
+                        </>
+                        <>
+                            <Link to={"/login"}>
+                                <button className="btn primary" style={{ margin: "20px 0 0 0", width: "100%" }}>
+                                    Войти
+                                </button>
+                            </Link>
 
-                    <Link to="/signup" >
-                        <button className="btn secondary" style={{ margin: "20px 0 0 0", width: "100%" }}>
-                            Регистрация
-                        </button>
-                    </Link>
+                            <Link to="/signup" >
+                                <button className="btn secondary" style={{ margin: "20px 0 0 0", width: "100%" }}>
+                                    Регистрация
+                                </button>
+                            </Link>
+                        </>
+                    </LkState>
+                    
                 </div>
 
             </Modal>

@@ -6,8 +6,7 @@ import Input from "../../UI/Input/Input";
 import { SectionText } from "../../UI/Section/Section";
 import { Link, useNavigate } from "react-router-dom";
 import ImgGoogle from "../../icons/service-google.svg";
-import user from "../../store/user";
-
+import { auth } from "../../firebase";
 
 
 
@@ -18,16 +17,9 @@ const Login: React.FC = () => {
     const [passwordValue, setPasswordValue] = useState('');
 
     const handleLogin = (email: string, password: string) => {
-        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then((resp: UserCredential) => {
                 console.log(resp);
-                user.setEmail(resp.user.email ?? 'invalidEmail');
-                user.setUserObject({ ...resp.user });
-                console.log(user);
-                console.log(user.userObject);
-                console.log({ ...user.userObject });
-
                 navigate('/profile');
             })
             .catch((error: Error) => {

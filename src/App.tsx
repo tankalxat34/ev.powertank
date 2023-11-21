@@ -1,19 +1,32 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import './App.css';
 import { observer } from 'mobx-react-lite';
 import { BrowserRouter, Route, Router, RouterProvider, Routes } from 'react-router-dom';
 import { privateProter, router } from './router';
-import user from './store/user';
-import { getAuth } from 'firebase/auth';
+import { auth, isAuth } from './firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 
+const Context = createContext({});
 
 
 function App() {
-    const userSigned = user.isAuth();
+    const [state, setState] = useState({});
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (data) => {
+            console.log(data);
+            setState({...data});
+        })
+    }, [])
+    // const userSigned = isAuth();
     return (
         <React.StrictMode>
-            <RouterProvider router={userSigned ? privateProter : router} />
+            <Context.Provider value={{
+                state
+            }}>
+                <RouterProvider router={!!state ? privateProter : router} />
+            </Context.Provider>
         </React.StrictMode>
     );
 }

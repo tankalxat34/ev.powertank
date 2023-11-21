@@ -5,8 +5,8 @@ import styles from "./signup.module.css";
 import { Button } from "../../UI/Button/Button";
 import Input from "../../UI/Input/Input";
 import { SectionText } from "../../UI/Section/Section";
-import { Link, Navigate } from "react-router-dom";
-import user from "../../store/user";
+import { Link } from "react-router-dom";
+import { auth } from "../../firebase";
 
 
 const Signup: React.FC = () => {
@@ -25,20 +25,9 @@ const Signup: React.FC = () => {
     
 
     const handleSignup = (email: string, password: string) => {
-        const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
             .then((resp: UserCredential) => {
                 console.log(resp);
-
-                user.setEmail(resp.user.email ?? 'invalidEmail');
-                user.setUserObject({...resp.user});
-                user.setAuth(auth);
-
-                console.log(user);
-                console.log(user.auth);
-                console.log(user.userObject);
-                console.log({...user.userObject});
-                
                 navigate('/profile');
             })
             .then(() => {
