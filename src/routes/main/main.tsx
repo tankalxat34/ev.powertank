@@ -6,6 +6,38 @@ import Section, { SectionText } from "../../UI/Section/Section";
 import Badge, { BadgesDiv } from "../../UI/Badge/Badge";
 import { Link } from "react-router-dom";
 import { isAuth } from "../../firebase";
+import LkState from "../../components/LkState/LkState";
+
+
+const ActionButtons: React.FC = () => {
+    return <LkState>
+        <>
+            <Link to={"/neworder"}>
+                <Button className={`btn primary ${styles.flexBtns}`}>
+                    Заказать зарядную сессию
+                </Button>
+            </Link>
+            <Link to={"/profile"}>
+                <Button className={`btn outline ${styles.flexBtns}`}>
+                    Мой профиль
+                </Button>
+            </Link>
+        </>
+        <>
+            <Link to={"/login"}>
+                <Button className={`btn primary ${styles.flexBtns}`}>
+                    Заказать зарядную сессию
+                </Button>
+            </Link>
+            <Link to={"/login"}>
+                <Button className={`btn outline ${styles.flexBtns}`}>
+                    Войти в личный кабинет
+                </Button>
+            </Link>
+        </>
+    </LkState>
+}
+
 
 const SectionFirst: React.FC = () => {
 
@@ -17,32 +49,7 @@ const SectionFirst: React.FC = () => {
                     <h1>EV PowerTank</h1>
                     <p>Первый сервис вызова мобильных зарядных станций для электромобилей в Москве и Московской области. Заказ на официальном сайте или в мобильном приложении.</p>
                     <div className={styles.btns}>
-                        {isAuth()
-                            ? <>
-                                <Link to={"/neworder"}>
-                                    <Button className={`btn primary ${styles.flexBtns}`}>
-                                        Заказать зарядную сессию
-                                    </Button>
-                                </Link>
-                                <Link to={"/profile"}>
-                                    <Button className={`btn outline ${styles.flexBtns}`}>
-                                        Мой профиль
-                                    </Button>
-                                </Link>
-                            </>
-                            : <>
-                                <Link to={"/login"}>
-                                    <Button className={`btn primary ${styles.flexBtns}`}>
-                                        Заказать зарядную сессию
-                                    </Button>
-                                </Link>
-                                <Link to={"/login"}>
-                                    <Button className={`btn outline ${styles.flexBtns}`}>
-                                        Войти в личный кабинет
-                                    </Button>
-                                </Link>
-                            </>
-                        }
+                        <ActionButtons />
                     </div>
                 </div>
             </Section>
@@ -138,32 +145,7 @@ const SectionFirst: React.FC = () => {
                     <h2>В путь!</h2>
                     <p>Сделайте заказ прямо сейчас и начните поездку без ограничений вместе с EV PowerTank</p>
                     <div className={`${styles.btns} ${styles.flexBtns}`}>
-                        {isAuth()
-                            ? <>
-                                <Link to={"/neworder"}>
-                                    <Button className={`btn primary ${styles.flexBtns}`}>
-                                        Заказать зарядную сессию
-                                    </Button>
-                                </Link>
-                                <Link to={"/profile"}>
-                                    <Button className={`btn outline ${styles.flexBtns}`}>
-                                        Мой профиль
-                                    </Button>
-                                </Link>
-                            </>
-                            : <>
-                                <Link to={"/login"}>
-                                    <Button className={`btn primary ${styles.flexBtns}`}>
-                                        Заказать зарядную сессию
-                                    </Button>
-                                </Link>
-                                <Link to={"/login"}>
-                                    <Button className={`btn outline ${styles.flexBtns}`}>
-                                        Войти в личный кабинет
-                                    </Button>
-                                </Link>
-                            </>
-                        }
+                        <ActionButtons />
                     </div>
                 </div>
             </SectionText>
