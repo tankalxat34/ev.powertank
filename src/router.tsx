@@ -1,11 +1,13 @@
 import {
-    createBrowserRouter,
+    Navigate,
+    createBrowserRouter, redirect, redirectDocument,
 } from "react-router-dom";
 import ErrorPage from "./routes/error/error";
 import RouteMain from "./routes/main/main";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Sub from "./routes/sub/sub";
+import Login from "./routes/login/login";
 
 
 const _router: Object[] = [
@@ -45,15 +47,19 @@ const _router: Object[] = [
         path: "/login",
         element: <>
             <Header />
-            <p>Раздел login в разработке</p>
+            <Login />
             <Footer />
         </>
     },
     {
         path: "*",
-        element: <>
-            <ErrorPage />
-        </>
+        element: true ? (
+            <>
+                <ErrorPage />
+            </>
+        ) : (
+            <Navigate to="/"/>
+        )
     }
 ]
 
@@ -66,7 +72,17 @@ const _privateRouter = [
             <p>Вы авторизованы и находитесь в своем профиле</p>
             <Footer />
         </>
-    }
+    },
+    {
+        path: "/neworder",
+        element: <>
+            <Header />
+            {/* сделать проверку на логин. Если логина нет - редирект на /login */}
+            <p>Вы авторизованы и находитесь в своем профиле</p>
+            <p>Страница создания заказа зарядной сессии</p>
+            <Footer />
+        </>
+    },
 ]
 
 

@@ -50,5 +50,10 @@
 
     .btns > * {
         margin-top: 15px;
+        width: 100%!important;
+    }
+
+    .flexBtns {
+        width: 100%!important
     }
 }

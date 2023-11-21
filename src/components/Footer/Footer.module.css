@@ -5,15 +5,30 @@
 
 .footer {
     width: 100vw;
-    height: 33vh;
+    min-height: max-content;
     padding: 30px;
 
     background-color: var(--color-background-footer);
     color: var(--color-workflow-background);
+
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.footer > ul {
+.footer>div {
+    margin: 20px;
+}
+
+.footer ul {
+    color: white;
     width: 50%;
     margin: 0 5%;
     list-style-type: none;
+    min-width: 15vw;
+}
+
+@media (max-width: 1200px) {
+    .footer ul {
+        min-width: 100vw;
+    }
 }

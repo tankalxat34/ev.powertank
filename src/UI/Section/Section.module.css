@@ -49,6 +49,10 @@
         align-items: center;
     }
 
+    .sectionText {
+        text-align: justify;
+    }
+
     .img {
         max-width: 100vw;
         max-height: 100vh;

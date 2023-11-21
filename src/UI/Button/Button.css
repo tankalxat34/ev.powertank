@@ -45,6 +45,7 @@ button {
 
 .btn.primary {
     background: var(--color-button-1);
+    border: 2px solid;
 }
 
 .btn.primary:hover {
@@ -58,6 +59,7 @@ button {
 
 .btn.secondary {
     background: var(--color-button-secondary-1);
+    border: 2px solid;
 }
 
 .btn.secondary:hover {
@@ -71,6 +73,7 @@ button {
 
 .btn.negative {
     background: var(--color-button-negative-1);
+    border: 2px solid;
 }
 
 .btn.negative:hover {
