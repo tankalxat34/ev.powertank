@@ -17,8 +17,12 @@ const FooterLinks1 = [
 ];
 
 const FooterLinks2 = [
+    { title: "Паспорт проекта", path: "/legaldocs" },
+];
+
+const FooterLinks3 = [
     { title: "Правовые документы", path: "/legaldocs" },
 ];
 
-export { FooterLinks1, FooterLinks2 };
+export { FooterLinks1, FooterLinks2, FooterLinks3 };
 export default Links;

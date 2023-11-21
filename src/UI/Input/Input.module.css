@@ -1,0 +1,26 @@
+:root {
+    --color-input-1: #15A2CE;
+    --color-input-2: #31a7cb;
+    --color-input-3: #4aadcb;
+}
+
+input {
+    outline: none;
+    border: none;
+    transition: all .2s ease-in;
+    /* margin: 20px 0; */
+}
+
+.input {
+    border: 2px solid white;
+    border-radius: 10px;
+    min-width: 100px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    margin: 10px 0;
+}
+
+.input:focus {
+    border-color: var(--color-input-1);
+}

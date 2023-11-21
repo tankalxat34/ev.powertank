@@ -1,0 +1,30 @@
+.iSize {
+    width: calc(var(--font-size) + 20px);
+    height: calc(var(--font-size) + 20px);
+}
+
+.signupPage {
+    max-width: 60vw;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20vh;
+    display: grid;
+}
+
+.signupPage input {
+    width: 90%;
+}
+
+@media (max-width: 1200px) {
+    .signupPage {
+        text-align: left;
+        margin-top: 20vh;
+        max-width: 90vw;
+    }
+
+    .signupPage input {
+        width: 100%;
+    }
+}

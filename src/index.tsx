@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
+import { initializeApp } from "firebase/app";
+import 'firebase/firestore';
+import 'firebase/auth';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import './firebase';
 
 const rootDiv = document.getElementById('root') as HTMLElement
 

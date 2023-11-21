@@ -58,7 +58,7 @@ const Header: React.FC = () => {
                         </button>
                     </Link>
 
-                    <Link to="/login" >
+                    <Link to="/signup" >
                         <button className="btn secondary" style={{ margin: "20px 0 0 0", width: "100%" }}>
                             Регистрация
                         </button>

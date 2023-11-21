@@ -24,6 +24,8 @@
 
     --navbar-heihgt: 6vh;
 
+    --font-size: 20px;
+
     --fontStack-header-sansSerif: -apple-system, BlinkMacSystemFont, 'Play-Regular', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     --fontStack-sansSerif: -apple-system, BlinkMacSystemFont, 'Rubik-Regular', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
@@ -66,7 +68,7 @@ body {
     font-family: var(--fontStack-sansSerif);
     background-color: var(--color-workflow-background);
     overflow-x: hidden;
-    font-size: 20px;
+    font-size: var(--font-size);
     user-select: none;
 
     margin: var(--navbar-heihgt) 0!important;
@@ -234,4 +236,14 @@ body {
     flex-direction: column;
     min-height: 100vh;
     /* 100% высоты видимой области */
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 3em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
 }

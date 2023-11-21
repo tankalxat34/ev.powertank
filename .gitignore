@@ -25,3 +25,5 @@ yarn-error.log*
 # other types
 *.log
 .firebase
+src/FirebaseAppConst.ts
+.env

@@ -8,6 +8,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Sub from "./routes/sub/sub";
 import Login from "./routes/login/login";
+import Signup from "./routes/signup/signup";
+import Profile from "./routes/profile/profile";
 
 
 const _router: Object[] = [
@@ -52,6 +54,14 @@ const _router: Object[] = [
         </>
     },
     {
+        path: "/signup",
+        element: <>
+            <Header />
+            <Signup />
+            <Footer />
+        </>
+    },
+    {
         path: "*",
         element: true ? (
             <>
@@ -69,7 +79,7 @@ const _privateRouter = [
         path: "/profile",
         element: <>
             <Header />
-            <p>Вы авторизованы и находитесь в своем профиле</p>
+            <Profile />
             <Footer />
         </>
     },
