@@ -18,7 +18,7 @@ const ActionButtons: React.FC = () => {
             </Link>
             <Link to={"/profile"}>
                 <Button className={`btn outline ${styles.flexBtns}`}>
-                    Мой профиль
+                    Личный кабинет
                 </Button>
             </Link>
         </>

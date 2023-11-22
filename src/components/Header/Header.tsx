@@ -6,6 +6,7 @@ import iconBurderMenu from "../../icons/dark-burger.svg"
 import Modal from "../../UI/Modal/Modal";
 import Links from "../../Links";
 import LkState from "../LkState/LkState";
+import { ButtonSignOut } from "../../UI/Button/Button";
 
 
 const NavLinks: React.FC = () => {
@@ -16,6 +17,10 @@ const NavLinks: React.FC = () => {
                     {value.title}
                 </Link>
             })}
+            <LkState>
+                <Link to='/neworder' style={{color: '#15A2CE'}}>Новый заказ</Link>
+                <i></i>
+            </LkState>
         </>
     )
 }
@@ -65,9 +70,10 @@ const Header: React.FC = () => {
                         <>
                             <Link to="/profile">
                                 <button className="btn primary" style={{ margin: "20px 0 0 0", width: "100%" }}>
-                                    Перейти в профиль
+                                    Личный кабинет
                                 </button>
                             </Link>
+                            <ButtonSignOut style={{ margin: "20px 0 0 0", width: "100%" }}/>
                         </>
                         <>
                             <Link to={"/login"}>
