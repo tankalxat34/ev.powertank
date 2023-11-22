@@ -1,12 +1,15 @@
 import React, { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword, UserCredential, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, UserCredential, onAuthStateChanged, updateProfile, User } from "firebase/auth";
 import styles from "./signup.module.css";
 import { Button } from "../../UI/Button/Button";
 import Input from "../../UI/Input/Input";
 import { SectionText } from "../../UI/Section/Section";
 import { Link } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
+import ImgAvatare from "../../icons/default-avatare.png";
+import { addDoc, collection } from "firebase/firestore";
+
 
 
 const Signup: React.FC = () => {
@@ -18,23 +21,78 @@ const Signup: React.FC = () => {
     const [fathernameValue, setFathernameValue] = useState('');
     const [loginValue, setLoginValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');
-    
+
     // Электрокар
     const [carmodelValue, setCarmodelValue] = useState('');
     const [carnumberValue, setCarnumberValue] = useState('');
-    
+
+    // Значения, которые должны быть заполнены
+    const nesessaryData = [
+        firstnameValue,
+        lastnameValue,
+        loginValue,
+        passwordValue,
+        carmodelValue,
+        carnumberValue,
+    ]
+
+    /**
+     * Вернуть `true`, если форма заполнена корректно
+     * @returns boolean
+     */
+    const formValidation = () => {
+        // проверка на заполненность обязательных полей
+        for (let i = 0; i < nesessaryData.length; i++) {
+            if (nesessaryData[i] !== carmodelValue && (!nesessaryData[i] || nesessaryData[i].includes(" "))) {
+                return false
+            }
+        }
+        
+        // проверка на корректность введенного автомобильного номера
+        const rgxp = /^[А-Я]{1}\d{3}[А-Я]{2}\d{2,3}$/gm;
+        console.log(carnumberValue.match(rgxp))
+        console.log(Array.isArray(carnumberValue.match(rgxp)))
+        if (!Array.isArray(carnumberValue.match(rgxp))) return false;
+
+        return true;
+    }
 
     const handleSignup = (email: string, password: string) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((resp: UserCredential) => {
                 console.log(resp);
-                navigate('/profile');
+                return resp;
+            })
+            .then((resp: UserCredential) => {
+                return addDoc(collection(db, 'users'), {
+                    uid: resp.user.uid,
+                    email: resp.user.email,
+                    pricetype: 0,
+                    name: {
+                        firstname: firstnameValue,
+                        lastname: lastnameValue,
+                        fathername: fathernameValue
+                    },
+                    cars: [
+                        { model: carmodelValue, number: carnumberValue }
+                    ]
+                })
+            })
+            .then((docRef) => {
+                console.log(docRef)
+                console.log(docRef.id)
             })
             .then(() => {
-                onAuthStateChanged(auth, (argUser: any) => {
-                    const uid = argUser.uid;
-                    console.log('onAuthStateChanged', {...argUser});
+                return updateProfile(auth.currentUser as User, {
+                    displayName: `${lastnameValue} ${firstnameValue} ${fathernameValue}`,
+                    photoURL: ImgAvatare,
                 })
+            })
+            .then(() => {
+                navigate('/profile');
+            })
+            .catch((e) => {
+                throw e
             })
             .catch((error: Error) => {
                 console.error(error);
@@ -53,17 +111,17 @@ const Signup: React.FC = () => {
                         <h3>Персональные данные</h3>
                         <Input
                             type="text"
-                            name="firstname"
-                            placeholder="Имя"
-                            value={firstnameValue}
-                            onChange={(e) => setFirstnameValue(e.target.value)}
+                            name="lastname"
+                            placeholder="Фамилия*"
+                            value={lastnameValue}
+                            onChange={(e) => setLastnameValue(e.target.value)}
                         />
                         <Input
                             type="text"
-                            name="lastname"
-                            placeholder="Фамилия"
-                            value={lastnameValue}
-                            onChange={(e) => setLastnameValue(e.target.value)}
+                            name="firstname"
+                            placeholder="Имя*"
+                            value={firstnameValue}
+                            onChange={(e) => setFirstnameValue(e.target.value)}
                         />
                         <Input
                             type="text"
@@ -75,14 +133,14 @@ const Signup: React.FC = () => {
                         <Input
                             type="login"
                             name="login"
-                            placeholder="Электронная почта (логин)"
+                            placeholder="Электронная почта (логин)*"
                             value={loginValue}
                             onChange={(e) => setLoginValue(e.target.value)}
                         />
                         <Input
                             type="password"
                             name="password"
-                            placeholder="Пароль"
+                            placeholder="Пароль*"
                             value={passwordValue}
                             onChange={(e) => setPasswordValue(e.target.value)}
                         />
@@ -90,21 +148,24 @@ const Signup: React.FC = () => {
                         <Input
                             type="text"
                             name="carmodel"
-                            placeholder="Модель электрокара"
+                            placeholder="Модель электрокара*"
                             value={carmodelValue}
                             onChange={(e) => setCarmodelValue(e.target.value)}
                         />
                         <Input
                             type="text"
                             name="carnumber"
-                            placeholder="Номер (пример: Е123КХ77)"
+                            placeholder="Номер (пример: Е123КХ77)*"
                             value={carnumberValue}
-                            onChange={(e) => setCarnumberValue(e.target.value)}
+                            onChange={(e) => setCarnumberValue(e.target.value.toLocaleUpperCase().slice(0, 9))}
                         />
                         <Button
                             onClick={(event) => {
                                 event.preventDefault();
-                                return handleSignup(loginValue, passwordValue);
+                                if (formValidation()) handleSignup(loginValue, passwordValue);
+                                // console.log(formValidation())
+                                // if (formValidation()) console.log(formValidation());
+                                else alert("Заполнены не все обязательные поля либо форма заполнена некорректно!")
                             }}
                         >
                             Зарегистрироваться

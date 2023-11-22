@@ -17,7 +17,7 @@ const FooterLinks1 = [
 ];
 
 const FooterLinks2 = [
-    { title: "Паспорт проекта", path: "/legaldocs" },
+    { title: "Платформа Project", path: "https://pt.2035.university/project/ev-powertank" },
 ];
 
 const FooterLinks3 = [

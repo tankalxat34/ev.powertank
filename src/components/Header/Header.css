@@ -20,6 +20,7 @@ header {
     display: flex;
     justify-content: space-between;
     height: var(--navbar-heihgt);
+    min-height: 60px;
 }
 
 .actions {
