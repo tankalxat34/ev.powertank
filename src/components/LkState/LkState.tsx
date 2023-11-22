@@ -15,7 +15,53 @@ interface IUserProperty {
 }
 
 
+export const Loader: React.FC = () => {
+    return <>
+        <div style={{
+            display: 'flex',
+            margin: 'auto',
+            justifyContent: 'center',
+            alignContent: 'center',
+            alignItems: 'center'
+        }}>
+            <TailSpin
+                height="50"
+                width="50"
+                color="#15A2CE"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+            />
+        </div>
+    </>
+}
 
+export const PageLoader: React.FC = () => {
+    return <>
+        <div style={{
+            display: 'flex',
+            margin: 'auto',
+            justifyContent: 'center',
+            alignContent: 'center',
+            alignItems: 'center'
+        }}>
+            <TailSpin
+                height="70vh"
+                width="70vw"
+                color="#15A2CE"
+                ariaLabel="tail-spin-loading"
+                radius="1"
+                wrapperStyle={{
+                    width: "20vw"
+                }}
+                wrapperClass=""
+                visible={true}
+            />
+        </div>
+    </>
+}
 
 
 /**
@@ -43,21 +89,12 @@ export const UserProperty: React.FC<IUserProperty> = ({ pathToKey }): ReactEleme
         const resultString = get(userData, pathToKey, "null");
         return <>
             {resultString
-            ? resultString
-            : <p style={{color: 'grey'}}>Не задано</p>
+                ? resultString
+                : <p style={{ color: 'grey' }}>Не задано</p>
             }
-            </>
+        </>
     } else {
-        return <TailSpin
-            height="50"
-            width="50"
-            color="#15A2CE"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-        />
+        return <Loader />
     }
 }
 
@@ -91,16 +128,7 @@ const LkState: React.FC<ILkState> = ({ children }): ReactElement<any, any> | nul
     }
     if (state === "pending") {
         return <>
-            <TailSpin
-                height="50"
-                width="50"
-                color="#15A2CE"
-                ariaLabel="tail-spin-loading"
-                radius="1"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-            />
+            <Loader />
         </>
     }
     if (state === 'rejected') {

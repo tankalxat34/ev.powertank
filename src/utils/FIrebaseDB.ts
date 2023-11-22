@@ -1,7 +1,12 @@
-import { db } from './../firebase';
+import { DocumentData, QuerySnapshot, collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebase';
+import { useEffect, useState } from 'react';
 
-class MyFireStore {
-
+class ServiceDB {
+    static async getUser(uid: string): Promise<QuerySnapshot<DocumentData, DocumentData>>
+    {
+        return await getDocs(query(collection(db, 'users'), where('uid', '==', uid)));
+    }
 }
 
-export {}
+export default ServiceDB;
