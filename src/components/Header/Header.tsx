@@ -68,8 +68,13 @@ const Header: React.FC = () => {
 
                     <LkState>
                         <>
-                            <Link to="/profile">
+                            <Link to="/neworder">
                                 <button className="btn primary" style={{ margin: "20px 0 0 0", width: "100%" }}>
+                                    Новый заказ
+                                </button>
+                            </Link>
+                            <Link to="/profile">
+                                <button className="btn primary outline" style={{ margin: "20px 0 0 0", width: "100%" }}>
                                     Личный кабинет
                                 </button>
                             </Link>
