@@ -121,6 +121,25 @@ a:hover {
     color: rgb(0, 183, 239);
 }
 
+
+.subSection.base {
+    background-color: white;
+    color: black;
+}
+
+.subSection.plus {
+    background-color: #008A61;
+    color: #ffffff;
+}
+
+.subSection.prem {
+    /* background: rgb(255, 240, 18);
+    background: linear-gradient(153deg, rgba(255, 240, 18, 1) 0%, rgba(255, 235, 50, 1) 17%, rgba(149, 0, 255, 1) 94%); */
+    background: rgb(173, 166, 54);
+    background: linear-gradient(153deg, rgba(173, 166, 54, 1) 0%, rgba(185, 170, 37, 1) 17%, rgba(149, 0, 255, 1) 94%);
+    color: #ffffff;
+}
+
 /**
   Нормализация блочной модели
  */
