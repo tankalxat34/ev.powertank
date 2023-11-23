@@ -4,7 +4,7 @@
 const Links = [
     { title: "Главная", path: "/" },
     { title: "О подписке", path: "/price" },
-    { title: "О сервисе", path: "/about" },
+    // { title: "О сервисе", path: "/about" },
     { title: "FAQ", path: "/faq" },
     { title: "Вакансии", path: "/job" },
 ]
