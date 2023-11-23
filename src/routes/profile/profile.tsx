@@ -114,8 +114,8 @@ const Profile: React.FC = () => {
                 <div className={styles.pSection}>
                     <h3>Электрокары ({dbData.cars.length})</h3>
                     <div className={styles.carsList}>
-                        {dbData.cars.map((car: IDBCar) => {
-                            return <div>
+                        {dbData.cars.map((car: IDBCar, index: number) => {
+                            return <div key={index}>
                                 <h4>{car.model}</h4>
                                 <p style={{ display: 'flex' }}>{car.number}&nbsp;<img src={RuFlag} alt="" width={'20px'} /></p>
                             </div>
