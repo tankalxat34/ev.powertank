@@ -17,7 +17,7 @@ import RuFlag from '../../icons/russia-flag-icon.svg';
 
 // фикс нужен, так как Firestore не определяет типы этих свойств
 // и возникает ошибка о несуществовании свйства
-interface IUserFix extends UserMetadata {
+export interface IUserFix extends UserMetadata {
     createdAt: string
 }
 

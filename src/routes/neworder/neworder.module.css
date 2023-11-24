@@ -8,6 +8,7 @@
     font-family: var(--fontStack-header-sansSerif);
     font-weight: bold;
     font-size: 1.5em;
+    margin: 10px;
 }
 
 .stepNumber {
@@ -21,4 +22,18 @@
 
 .stepSection {
     margin: 5vh 0;
+}
+
+.btnMakeOrder {
+    margin: 3vh 0;
+}
+
+@media (max-width: 1200px) {
+    .profileSectionText a,p,span {
+        text-align: justify;
+    }
+
+    .btnMakeOrder {
+        width: 100%;
+    }
 }
