@@ -116,7 +116,7 @@
     .profileSectionText {
         margin: 0;
     }
-    h2 {
+    h2.needHidden {
         display: none;
     }
 }

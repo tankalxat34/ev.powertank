@@ -38,7 +38,7 @@ const Profile: React.FC = () => {
 
     return <>
         <SectionText className={styles.profileSectionText}>
-            <h2>Личный кабинет</h2>
+            <h2 className={styles.needHidden}>Личный кабинет</h2>
 
             <div className={`${styles.profileBlock}`}>
                 <div className={styles.avatareSection}>

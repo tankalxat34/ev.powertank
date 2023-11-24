@@ -1,0 +1,24 @@
+.profileSectionText {
+    min-height: 100vh;
+    margin: auto 10vw;
+    /* margin-top: 10vh; */
+}
+
+.stepHeader {
+    font-family: var(--fontStack-header-sansSerif);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.stepNumber {
+    background-color: var(--color-workflow);
+    color: var(--color-workflow-background);
+    width: fit-content;
+    display: inline;
+    padding: 10px 20px;
+    border-radius: 100%;
+}
+
+.stepSection {
+    margin: 5vh 0;
+}

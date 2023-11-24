@@ -7,6 +7,7 @@ import Sub from "./routes/sub/sub";
 import Login from "./routes/login/login";
 import Signup from "./routes/signup/signup";
 import Profile from "./routes/profile/profile";
+import Neworder from "./routes/neworder/neworder";
 
 
 const _router: Object[] = [
@@ -74,9 +75,7 @@ const _privateRouter = [
         path: "/neworder",
         element: <>
             <Header />
-            {/* сделать проверку на логин. Если логина нет - редирект на /login */}
-            <p>Вы авторизованы и находитесь в своем профиле</p>
-            <p>Страница создания заказа зарядной сессии</p>
+            <Neworder />
             <Footer />
         </>
     },
