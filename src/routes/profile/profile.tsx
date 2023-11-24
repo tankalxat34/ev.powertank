@@ -140,14 +140,9 @@ const Profile: React.FC = () => {
                 </div>
 
 
-                {/* <div className={styles.btnMainActions}>
-                    <Link to="/neworder">
-                        <button className={`btn primary ${styles.btnMainAction}`}>
-                            Новый заказ
-                        </button>
-                    </Link>
+                <div className={styles.btnMainActions}>
                     <ButtonSignOut className={`btn negative ${styles.btnMainAction}`}/>
-                </div> */}
+                </div>
             </div>
 
         </SectionText>

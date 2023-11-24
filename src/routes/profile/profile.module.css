@@ -104,8 +104,9 @@
     /* .btnMainAction {
         width: 100%;
     } */
-    .btnMainActions {
-        display: none;
+    .btnMainActions * {
+        /* display: none; */
+        width: 100%;
     }
     .tableUserInfo {
         width: 100%;
