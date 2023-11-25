@@ -7,11 +7,25 @@ import { auth, db } from './firebase';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { IDBUser } from './interfaces/IFirestoreDb';
+import Modal, { IModal, IModalContext } from './UI/Modal/Modal';
 
 
 export const userFirebaseContext = createContext({});
+export const modalContext = createContext({});
 
 function App() {
+
+    const [modalActive, setModalActive] = useState(false);
+    const [newChildrenElement, setNewChildrenElement] = useState(<p>new children text</p>);
+    const definedModalContext: IModalContext = {
+        active: modalActive,
+        setActive: setModalActive,
+        children: <p>default text</p>,
+        newChildren: newChildrenElement,
+        closeAfterClick: false,
+        setNewChildrenElement: setNewChildrenElement
+    }
+
     // генирируем контекст - данные пользователя из авторизации и из БД
     // таким образом мы делаем всего один запрос на получение данных
     // и не нагружаем приложение лишними запросами из отдельных
@@ -47,7 +61,14 @@ function App() {
                 userData: state,
                 dbData: dbData
             }}>
-                <RouterProvider router={!!state ? privateProter : router} />
+                <modalContext.Provider value={definedModalContext}>
+                    <Modal newChildren={newChildrenElement} active={modalActive} setActive={setModalActive} closeAfterClick={definedModalContext.closeAfterClick}>
+                        {/* {childrenElement} */}
+                        {/* {definedModalContext.newChildren} */}
+                        {newChildrenElement}
+                    </Modal>
+                    <RouterProvider router={!!state ? privateProter : router} />
+                </modalContext.Provider>
             </userFirebaseContext.Provider>
         </React.StrictMode>
     );

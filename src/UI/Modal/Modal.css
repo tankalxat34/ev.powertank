@@ -50,6 +50,7 @@
     padding: 0;
     text-align: left;
     justify-content: left;
+    justify-items: left;
     align-items: left;
     overflow: scroll;
 }

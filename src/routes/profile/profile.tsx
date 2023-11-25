@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { SectionText } from "../../UI/Section/Section";
 import { PageLoader } from "../../components/LkState/LkState";
-import { userFirebaseContext } from "../../App";
+import { modalContext, userFirebaseContext } from "../../App";
 import { isEmpty } from "lodash";
 import styles from './profile.module.css';
 import { User, UserMetadata } from "firebase/auth";
@@ -11,6 +11,7 @@ import ImgDefaultUser from "../../icons/default-avatare.png";
 import { Link } from "react-router-dom";
 import { toRusTime } from "../../utils/Helper";
 import RuFlag from '../../icons/russia-flag-icon.svg';
+import { IModal, IModalContext } from "../../UI/Modal/Modal";
 
 
 // фикс нужен, так как Firestore не определяет типы этих свойств
@@ -23,10 +24,10 @@ const priceTypes: string[] = ['Базовый', 'Улучшенный', 'Пре�
 
 const Profile: React.FC = () => {
 
+    const Modal = useContext(modalContext) as IModalContext;
+
     const { userData, dbData } = useContext(userFirebaseContext) as { userData: User, dbData: IDBUser };
     const userDataMetadata = userData.metadata as IUserFix;
-
-    console.log(userData, dbData);
 
     if (isEmpty(userData) || isEmpty(dbData)) {
         return <SectionText className={styles.profileSectionText}>
@@ -114,11 +115,18 @@ const Profile: React.FC = () => {
                         return <div key={index}>
                             <h4>{car.model}</h4>
                             <p className={styles.carNumber}>{car.number}&nbsp;<img src={RuFlag} alt="" width={'20px'} /></p>
-                            {/* <p style={{display: 'flex'}}>{car.number}&nbsp;<img src={RuFlag} alt="" width={'20px'} /></p> */}
                         </div>
                     })}
                 </div>
-                <Button className={`btn outline ${styles.w100}`}>
+                <Button 
+                    className={`btn outline ${styles.w100}`}
+                    onClick={() => {
+                        if (!dbData.pricetype) {
+                            Modal.setNewChildrenElement(<p>Используя базовый тариф вы не можете добавить более одного электрокара в сервис</p>)
+                            Modal.setActive(!Modal.active)
+                        }
+                    }}
+                >
                     Добавить электрокар
                 </Button>
             </div>

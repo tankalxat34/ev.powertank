@@ -29,10 +29,6 @@
 }
 
 @media (max-width: 1200px) {
-    .profileSectionText a,p,span {
-        text-align: justify;
-    }
-
     .btnMakeOrder {
         width: 100%;
     }
