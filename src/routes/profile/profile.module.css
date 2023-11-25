@@ -10,51 +10,23 @@
 }
 
 .profileSectionText {
-    /* min-height: 100vh; */
-    margin: auto 10vw;
+    min-height: 90vh;
+    margin: 10vh 10vw;
     /* margin-top: 10vh; */
-}
-
-.profileBlock {
-    border-radius: 21px;
-    background: #ffffff;
-    /* background: #FFF; */
-    padding: 5vw;
-    /* height: 90vh; */
-    min-height: max-content;
-    margin-bottom: 5vh;
-    /* min-width: max-content; */
-    text-overflow: ellipsis;
-    overflow: hidden;
-    /* white-space: nowrap; */
 }
 
 .pSection {
     margin-top: 20px;
 }
 
-.profileBlock .avatare {
+.avatare {
     width: 30vw;
     height: 30vw;
     max-width: 200px;
     max-height: 200px;
 }
 
-.profileBlock.aside {
-    position: relative;
-    min-width: 20vw;
-    max-width: max-content;
-}
-
-.profileBlock.aside > * {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    min-width: fit-content;
-}
-
-.profileBlock .avatareSection > * {
+.avatareSection > * {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -72,6 +44,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 1vh 0;
 }
 
 .btnQuickActions * {
@@ -80,8 +55,9 @@
 }
 
 .tableUserInfo {
-    width: 35vw;
+    width: 30vw;
     text-align: left;
+    word-wrap: break-word;
 }
 .tableUserInfo td:nth-child(1) {
     font-weight: 700;
@@ -98,26 +74,36 @@
     padding: 10px;
     border-radius: 10px;
     min-width: max-content;
+    transition: all .2s ease-out;
 }
 
+.carsList div:hover {
+    background-color: #15a3ce20;
+}
+
+.carNumber {
+    background-color: white;
+    display: flex;
+    border: 1px solid grey;
+    padding: 3px;
+}
+
+
 @media (max-width: 1200px) {
-    /* .btnMainAction {
-        width: 100%;
-    } */
     .btnMainActions * {
-        /* display: none; */
         width: 100%;
     }
     .tableUserInfo {
-        width: 100%;
+        width: 95%;
+        word-wrap: break-word;
     }
-    /* .btnQuickActions {
-        display: none;
-    } */
     .profileSectionText {
-        margin: 0;
+        margin: 10vh 3vw;
     }
     h2.needHidden {
         display: none;
+    }
+    .w100  {
+        width: 100%;
     }
 }

@@ -13,7 +13,7 @@ const ActionButtons: React.FC = () => {
         <>
             <Link to={"/neworder"}>
                 <Button className={`btn primary ${styles.flexBtns}`}>
-                    Заказать зарядную сессию
+                    Сделать заказ
                 </Button>
             </Link>
             <Link to={"/profile"}>
@@ -23,9 +23,9 @@ const ActionButtons: React.FC = () => {
             </Link>
         </>
         <>
-            <Link to={"/login"}>
+            <Link to={"/signup"}>
                 <Button className={`btn primary ${styles.flexBtns}`}>
-                    Заказать зарядную сессию
+                    Регистрация
                 </Button>
             </Link>
             <Link to={"/login"}>

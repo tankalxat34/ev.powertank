@@ -45,7 +45,8 @@ export const PageLoader: React.FC = () => {
             margin: 'auto',
             justifyContent: 'center',
             alignContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            minHeight: '90vh'
         }}>
             <TailSpin
                 height="70vh"
